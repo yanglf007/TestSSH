@@ -68,6 +68,15 @@ public class DepartmentServiceImpl implements DepartmentService {
 		departmentDao.update(department);
 		
 	}
+
+
+	@Override
+	public List<Department> findAll() {
+		// TODO Auto-generated method stub
+		
+	List<Department> list =	departmentDao.findAll();
+		return list;
+	}
 	
 
 }

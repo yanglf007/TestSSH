@@ -9,4 +9,8 @@ public interface EmployeeService {
 
 	PageBean<Employee> findAll(int currPage);
 
+	void save(Employee employee);
+
+	Employee findById(Integer eid);
+
 }

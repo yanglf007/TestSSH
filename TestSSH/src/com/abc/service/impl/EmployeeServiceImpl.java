@@ -52,8 +52,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 		List<Employee> list= employeeDao.findAll(begin,pageSize); 
 		pageBean.setList(list);
 		
-		System.out.println("totalPage:"+totalPage);
+		System.out.println("currPage:"+currPage);
 		return pageBean;
+	}
+
+
+	@Override
+	public void save(Employee employee) {
+		// TODO Auto-generated method stub
+		
+		employeeDao.save(employee);
+	}
+
+
+	@Override
+	public Employee findById(Integer eid) {
+		// TODO Auto-generated method stub
+		Employee employee =employeeDao.findById(eid);
+		return employee;
 	}
 	
 	

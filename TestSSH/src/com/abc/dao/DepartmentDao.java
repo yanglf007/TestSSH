@@ -19,6 +19,8 @@ public interface DepartmentDao {
 
 	void update(Department department);
 
+	List<Department> findAll();
+
 
 
 }

@@ -61,4 +61,21 @@ public class EmployeeDaoImpl  implements EmployeeDao {
 		return list;
 	}
 
+	@Override
+	public void save(Employee employee) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.openSession();
+		session.save("Employee", employee);
+	}
+
+	@Override
+	public Employee findById(Integer eid) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.openSession();
+		String hql = "from Employee as e where e.eid=?";
+		Query query = session.createQuery(hql);
+		query.setInteger(0, eid);
+		return (Employee) query.list().get(0);
+	}
+
 }

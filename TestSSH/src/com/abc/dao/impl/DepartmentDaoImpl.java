@@ -77,4 +77,17 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		String hql ="from Department";
 		session.save("Department",department);
 	}
+
+	@Override
+	public List<Department> findAll() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.openSession();
+		String hql = "from Department";
+		Query  query = session.createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<Department> list = query.list();
+
+		return list;
+	}
 }

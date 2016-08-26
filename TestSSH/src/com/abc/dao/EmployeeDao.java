@@ -14,4 +14,8 @@ public interface EmployeeDao {
 
 	List<Employee> findAll(int begin, int pageSize);
 
+	void save(Employee employee);
+
+	Employee findById(Integer eid);
+
 }
