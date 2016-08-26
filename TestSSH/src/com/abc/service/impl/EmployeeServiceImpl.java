@@ -71,6 +71,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 		Employee employee =employeeDao.findById(eid);
 		return employee;
 	}
+
+
+	@Override
+	public void update(Employee employee) {
+		// TODO Auto-generated method stub
+		employeeDao.update(employee);
+	}
+
+
+	@Override
+	public void delete(Integer eid) {
+		// TODO Auto-generated method stub
+		employeeDao.delete(eid);
+	}
 	
 	
 }

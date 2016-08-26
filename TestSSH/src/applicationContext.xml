@@ -37,8 +37,8 @@
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
-				<prop key="show_sql">true</prop>
-				<prop key="format">true</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format">true</prop>
 				<prop key="hbm2ddl.auto">create</prop>
 			</props>
 		</property>

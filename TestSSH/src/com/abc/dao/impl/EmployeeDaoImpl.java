@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import com.abc.dao.EmployeeDao;
 import com.abc.entity.Employee;
@@ -22,7 +23,7 @@ public class EmployeeDaoImpl  implements EmployeeDao {
 	@Override
 	public Employee findbyNameAndPassword(Employee employee) {
 		String hql = "from Employee where username=? and password=?";
-		System.out.println("Ö´ÐÐdao");
+		
 		
 		Session session = sessionFactory.openSession();
 	
@@ -76,6 +77,36 @@ public class EmployeeDaoImpl  implements EmployeeDao {
 		Query query = session.createQuery(hql);
 		query.setInteger(0, eid);
 		return (Employee) query.list().get(0);
+	}
+
+	@Override
+	public void update(Employee employee) {
+		// TODO Auto-generated method stub
+		
+		Session session = sessionFactory.openSession();
+	
+		Transaction transaction = session.getTransaction();
+		transaction.begin();
+		session.update(employee);
+		transaction.commit();
+		session.close();
+	}
+
+	@Override
+	public void delete(Integer eid) {
+		// TODO Auto-generated method stub
+		System.out.println("Ö´ÐÐÉ¾³ýÓï¾ä");
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.getTransaction();
+		transaction.begin();
+		String hql = "  delete from Employee as e where e.eid =?";
+		
+		Query query = session.createQuery(hql);
+		
+		query.setInteger(0, eid);
+		query.executeUpdate();
+		transaction.commit();
+		session.close();
 	}
 
 }
